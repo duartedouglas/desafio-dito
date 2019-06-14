@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    ports:
+      - "9080:9080"
+    command: yarn start
+  mongo:
+    image: mongo
+    volumes:
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"

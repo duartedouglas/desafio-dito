@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "48b07907-6f99-4f08-9cbc-8e414f7a81cb",
+		"name": "dito api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "collect events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"event\":\"buy\",\n\t\"custom_data\":[]\n}"
+				},
+				"url": "{{base_url}}/api/events"
+			},
+			"response": []
+		},
+		{
+			"name": "timeline",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{base_url}}/timeline"
+			},
+			"response": []
+		},
+		{
+			"name": "autocomplete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/events/search?term=bu",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"events",
+						"search"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "bu"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
