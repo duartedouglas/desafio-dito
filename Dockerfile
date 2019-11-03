@@ -1,14 +1,15 @@
 FROM node:10-alpine
 
-WORKDIR D:\Users\douglas2\Documents\Github\js\docker\teste
+WORKDIR .
 COPY . ./
 
 RUN yarn
 
 COPY . ./
 
-ENV PORT=9080
+ENV PORT=80
+ENV DBPORT=27017
 
-EXPOSE 9080
+EXPOSE 80
 CMD yarn start
 

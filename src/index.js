@@ -14,15 +14,16 @@ class App {
     }
     middlewares() {
         this.app.use(cors());
-        this.app.use(bodyParser.json())
+        this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.set("view options", { layout: false });
         this.app.use(express.static(path.resolve(__dirname, 'resources')));
     }
     database() {
-        const host = "192.168.99.100";
+        const host = "mongo";
+        const port = process.env.DBPORT || 27017;
 
-        mongoose.connect(`mongodb://${host}:27017/ditoapi`, { useNewUrlParser: true });
+        mongoose.connect(`mongodb://${host}:${port}/ditoapi`, { useNewUrlParser: true });
     }
     routes() {
         this.app.use("/api", router)
@@ -31,7 +32,7 @@ class App {
         });
     }
     run() {
-        const port = process.env.PORT || 9080;
+        const port = process.env.PORT || 80;
         this.app.listen(port, () => console.log(`listen on port ${port}`));
     }
 }
